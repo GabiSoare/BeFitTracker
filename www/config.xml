@@ -48,7 +48,11 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <gap:plugin name="com.megster.cordova.bluetoothserial" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.vibration" />
+	<feature name="Notification">
+	    <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+	</feature>
+	<feature name="Vibration">
+	    <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+	</feature>
     <access origin="http://127.0.0.1*" />
 </widget>

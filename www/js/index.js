@@ -98,4 +98,10 @@ function sendData(username,email,mass,height,gender)
 	xmlhttp.open("GET","http://embeddedsoft.ro/befit/getuser.php?username="+encodeURIComponent(username)+"&email="+encodeURIComponent(email)+"&mass="+encodeURIComponent(mass)+"&height="+encodeURIComponent(height)+"&gender="+encodeURIComponent(gender),true);
 	xmlhttp.send();
 }
+
+vibrate();
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+
 		

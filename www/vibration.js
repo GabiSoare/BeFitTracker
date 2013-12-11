@@ -18,25 +18,21 @@
  * under the License.
  *
 */
-var beep,
-    count = 0,
-    beepObj = new Audio('file:///usr/share/sounds/notification_text_message_im_received.wav');
 
-beep = function (quantity) {
-    var callback = function () {
-        if (--count > 0) {
-            beepObj.play();
-        } else {
-            beepObj.removeEventListener("ended", callback);
-            delete beepObj;
-        }
-    };
+var exec = require('cordova/exec');
 
-    count += quantity;
-    if (count === quantity) {
-        beepObj.addEventListener("ended", callback);
-        beepObj.play();
-    }
+/**
+ * Provides access to the vibration mechanism on the device.
+ */
+
+module.exports = {
+
+    /**
+     * Causes the device to vibrate.
+     *
+     * @param {Integer} mills       The number of milliseconds to vibrate for.
+     */
+    vibrate: function(mills) {
+        exec(null, null, "Vibration", "vibrate", [mills]);
+    },
 };
-
-module.exports = beep;

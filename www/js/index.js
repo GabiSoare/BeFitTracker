@@ -103,7 +103,7 @@ function sendData(username,email,mass,height,gender)
 
 
 
-
+checkConnection();
     function checkConnection() {
         var networkState = navigator.connection.type;
 

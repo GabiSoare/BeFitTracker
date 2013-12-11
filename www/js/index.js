@@ -10,10 +10,9 @@
     }
 
 	        
-		sup = document.getElementById("signup");    		
-	
-    	var p = document.getElementById("p");
-    	var e_mail = window.localStorage.getItem("Email");
+	sup = document.getElementById("signup");    		
+	var p = document.getElementById("p");
+    var e_mail = window.localStorage.getItem("Email");
 
 	var atpos=e_mail.indexOf("@");
 	var dotpos=e_mail.lastIndexOf(".");

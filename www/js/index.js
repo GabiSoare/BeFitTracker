@@ -99,9 +99,4 @@ function sendData(username,email,mass,height,gender)
 	xmlhttp.send();
 }
 
-vibrate();
-    function vibrate() {
-        navigator.notification.vibrate(2000);
-    }
-
 		

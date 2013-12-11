@@ -49,6 +49,5 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     
     <gap:plugin name="com.megster.cordova.bluetoothserial" />
-    <gap:plugin name="org.apache.cordova.vibration" />
     <access origin="http://127.0.0.1*" />
 </widget>

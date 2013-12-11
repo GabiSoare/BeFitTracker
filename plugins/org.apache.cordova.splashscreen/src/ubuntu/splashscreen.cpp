@@ -1,5 +1,7 @@
 /*
  *
+ * Copyright 2013 Canonical Ltd.
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -19,20 +21,22 @@
  *
 */
 
-var exec = require('cordova/exec');
+#include <QQuickItem>
 
-/**
- * Provides access to the vibration mechanism on the device.
- */
+#include "splashscreen.h"
+#include <cordova.h>
 
-module.exports = {
+#define SPLASHSCREEN_STATE_NAME "splashscreen"
 
-    /**
-     * Causes the device to vibrate.
-     *
-     * @param {Integer} mills       The number of milliseconds to vibrate for.
-     */
-    vibrate: function(mills) {
-        exec(null, null, "Vibration", "vibrate", [mills]);
-    },
-};
+Splashscreen::Splashscreen(Cordova *cordova): CPlugin(cordova) {
+}
+
+void Splashscreen::show(int, int) {
+    m_cordova->rootObject()->setProperty("splashscreenPath", m_cordova->getSplashscreenPath());
+
+    m_cordova->pushViewState(SPLASHSCREEN_STATE_NAME);
+}
+
+void Splashscreen::hide(int, int) {
+    m_cordova->popViewState(SPLASHSCREEN_STATE_NAME);
+}

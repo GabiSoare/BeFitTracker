@@ -19,17 +19,15 @@
  *
 */
 
-var cordova = require('cordova');
+var exec = require('cordova/exec');
 
-module.exports = {
-
-    vibrate: function(success, fail, milliseconds) {
-        if (navigator.notification.vibrate) {
-            navigator.vibrate(milliseconds);
-        } else {
-            console.log ("cordova/plugin/firefoxos/vibration, vibrate API does not exist");
-        }
+var splashscreen = {
+    show:function() {
+        exec(null, null, "SplashScreen", "show", []);
+    },
+    hide:function() {
+        exec(null, null, "SplashScreen", "hide", []);
     }
 };
 
-require("cordova/firefoxos/commandProxy").add("Vibration", module.exports);
+module.exports = splashscreen;

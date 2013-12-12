@@ -7,6 +7,7 @@
     //
     function onDeviceReady() {
      
+     alert("hei rup");
     }
 
 	        

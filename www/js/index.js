@@ -119,7 +119,7 @@ function sendData(username,email,mass,height,gender)
     //
     function populateDB(tx) {
 //        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id unique AUTO_INCREMENT, data)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id, data)');
         tx.executeSql('INSERT INTO USDA (id, data) VALUES (1, "First row")');
         tx.executeSql('INSERT INTO USDA (id, data) VALUES (2, "Second row")');
     }

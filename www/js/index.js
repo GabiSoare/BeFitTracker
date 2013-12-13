@@ -1,17 +1,5 @@
 
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-     
-     alert("hei rup");
-    }
-
-
-		        	
+	        	
 	sup = document.getElementById("signup");    		
 	var p = document.getElementById("p");
     var e_mail = window.localStorage.getItem("Email");
@@ -114,5 +102,63 @@ function sendData(username,email,mass,height,gender)
 	xmlhttp.open("GET","http://embeddedsoft.ro/befit/getuser.php?username="+encodeURIComponent(username)+"&email="+encodeURIComponent(email)+"&mass="+encodeURIComponent(mass)+"&height="+encodeURIComponent(height)+"&gender="+encodeURIComponent(gender),true);
 	xmlhttp.send();
 }
+
+
+// DOWNLOADEAZA IN BAZA DE DATE DACA USERUL APASA 'YES'
+
+
+    // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+
+
+    // Populate the database 
+    //
+    function populateDB(tx) {
+//        tx.executeSql('DROP TABLE IF EXISTS DEMO');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id unique, data)');
+        tx.executeSql('INSERT INTO USDA (id, data) VALUES (1, "First row")');
+        tx.executeSql('INSERT INTO USDA (id, data) VALUES (2, "Second row")');
+    }
+
+    // Query the database
+    //
+    function queryDB(tx) {
+        tx.executeSql('SELECT * FROM USDA', [], querySuccess, errorCB);
+    }
+
+    // Query the success callback
+    //
+    function querySuccess(tx, results) {
+        var len = results.rows.length;
+        var txt = "";
+        txt ="USDA table: " + len + " rows found.<br><br>";
+
+        for (var i=0; i<len; i++){
+           txt += "Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data + "<br>";
+        }
+        p.innerHTML = txt;
+    }
+
+    // Transaction error callback
+    //
+    function errorCB(err) {
+        alert("Error processing Food database: "+err.code);
+    }
+
+    // Transaction success callback
+    //
+    function successCB() {
+        var db = window.openDatabase("Food", "1.0", "FoodDisplay", 100000);
+        db.transaction(queryDB, errorCB);
+    }
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+        var db = window.openDatabase("Food", "1.0", "FoodDisplay", 100000);
+        db.transaction(populateDB, errorCB, successCB);
+    }
 
 		

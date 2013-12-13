@@ -10,11 +10,14 @@
      alert("hei rup");
     }
 
-	        
+
+		        	
 	sup = document.getElementById("signup");    		
 	var p = document.getElementById("p");
     var e_mail = window.localStorage.getItem("Email");
+	var username = window.localStorage.getItem("Username");
 
+		
 	var atpos=e_mail.indexOf("@");
 	var dotpos=e_mail.lastIndexOf(".");
 	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=e_mail.length)
@@ -23,13 +26,25 @@
 	  p.style.display="none";
 
 	 }else{
-	  sup.style.display="none";
-	  p.style.display="block";	 
-	  p.innerHTML = e_mail;	
+	 	var GOTOMAIN_FLAG = window.localStorage.getItem("GOTOMAIN_FLAG");
+	 	if("1234" == GOTOMAIN_FLAG){
+	 		window.location.href = "main.html";
+	 	}else{
+		 	sup.style.display="none";
+		  	p.style.display="block";	 
+	  		p.innerHTML = "Welcome here "+ username + "!<br><br> Do you like to download our Food Database? <br><a onclick='downloadDatabase()'>Yes</a> <a href='main.html' onclick='noDownloadDatabase()' rel='external' style='text-decoration:none; color: #506070'>No</a>";
+	  	}	
 	 }  
 	
        
-        
+function downloadDatabase(){
+	alert("acu`");
+}        
+    
+function noDownloadDatabase(){
+	alert("Las` ca revii tu");
+	window.localStorage.setItem("GOTOMAIN_FLAG","1234");
+}
         
 function signup(){
    	var username = document.getElementById("username").value;
@@ -87,8 +102,8 @@ function sendData(username,email,mass,height,gender)
 	var signup = document.getElementById("signup"); 
 	signup.style.display = "none";	
 	var p = document.getElementById("p"); 
-	p.style.display = "block";	
-	p.innerHTML = "Welcome "+username+ " "+email+" "+mass+" "+height+" "+gender;	
+  	p.style.display="block";	 
+	p.innerHTML = "Welcome here "+ username + "!<br><br> Do you like to download our Food Database? <br><a onclick='downloadDatabase()'>Yes</a> <a href='main.html' onclick='noDownloadDatabase()' rel='external' style='text-decoration:none; color: #506070'>No</a>";
 	
     window.localStorage.setItem("Username", username);
     window.localStorage.setItem("Email", email);

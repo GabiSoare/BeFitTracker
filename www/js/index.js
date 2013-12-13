@@ -1,4 +1,9 @@
 
+
+    // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
 	        	
 	sup = document.getElementById("signup");    		
 	var p = document.getElementById("p");
@@ -107,9 +112,6 @@ function sendData(username,email,mass,height,gender)
 // DOWNLOADEAZA IN BAZA DE DATE DACA USERUL APASA 'YES'
 
 
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
@@ -157,8 +159,10 @@ function sendData(username,email,mass,height,gender)
     // PhoneGap is ready
     //
     function onDeviceReady() {
+    	p.innerHTML = "aka";
         var db = window.openDatabase("Food", "1.0", "FoodDisplay", 100000);
         db.transaction(populateDB, errorCB, successCB);
+        alert("da da");
     }
 
 		

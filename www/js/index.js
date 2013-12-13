@@ -119,9 +119,11 @@ function sendData(username,email,mass,height,gender)
     //
     function populateDB(tx) {
 //        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id, desc)');
-        tx.executeSql('INSERT INTO USDA (id, desc) VALUES (1, "First row")');
-        tx.executeSql('INSERT INTO USDA (id, desc) VALUES (2, "Second row")');
+//        tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id, desc)');
+//        tx.executeSql('INSERT INTO USDA (id, desc) VALUES (1, "First row")');
+//        tx.executeSql('INSERT INTO USDA (id, desc) VALUES (2, "Second row")');
+  		tx.executeSql('INSERT INTO USDA (id, desc,water,energ_kcal,protein, lipid_tot, ash,carbo,fiber_td, sugar_tot,calcium,iron,magnesium,phosphorus,potassium,sodium,zinc,copper,manganese,selenium,vit_c,thiamin,riboflavin,niacin,panto_acid,vit_b6,folate_tot,folic_acid,food_folate,folate_dfe,choline_tot,vit_b12,vit_a_iu,vit_a_rae,retinol,alpha_carot,beta_carot,beta_crypt,lycopene,lut_zea,vit_e,vit_d,vit_d_iu,vit_k,fa_sat,fa_mono,fa_poly,cholestrl,gmwt,gmwt_desc1,gmwt_2,gmwt_desc2,refuse_pct)\
+  					 VALUES (2, "Second row",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)');	
     }
 
     // Query the database
@@ -138,7 +140,7 @@ function sendData(username,email,mass,height,gender)
         txt ="USDA table: " + len + " rows found.<br><br>";
 
         for (var i=0; i<len; i++){
-           txt += "Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data + "<br>";
+           txt += "Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).desc + "<br>";
         }
         p.innerHTML = txt;
     }

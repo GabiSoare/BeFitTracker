@@ -24,25 +24,15 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
+	background-image: url('../img/bg.png');
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
+    text-transform:none;
     width:100%;
+    color:#333333;
 }
 
 /* Portrait layout (default) */
@@ -112,4 +102,59 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+
+#imgProfile{
+	vertical-align: middle;
+}
+
+table{
+	text-align:center;
+	width: 100%;
+}
+table td{
+	cursor: pointer;
+}
+
+#profile_details{
+	font-weight: bold;
+	height: 50px;			
+}
+#profile_details td{
+	width:30%;
+	padding-top:15px;
+}
+#profile td{
+	text-align: left;
+	vertical-align: top;
+}
+#table td{
+	width:50%;
+}
+
+#table td:active{
+	background-image:url('../img/bg_active.jpg');
+}
+#table{
+	height: 500px; 	
+	font-size:medium;
+	font-weight:bold;
+}
+#nutrition{
+
+}
+
+a{
+	color:#333333;
+	text-decoration: none;
+}
+
+
+
+#activity-table td{
+	background-image:url('../img/bg_active.jpg');
+	padding-bottom:10px;
+	padding-top:10px;
 }

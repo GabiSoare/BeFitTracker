@@ -4,14 +4,14 @@ var totalOfActivies = 0;
 var table = document.getElementById("activity-table");
 var add_new = document.getElementById("add-new");
 
+var input = document.getElementById("activityName");
 
 function loadActivities(){
 	
 }
 
 function addActivity(){
-
-	var input = document.getElementById("activityName");
+	
 	if(input.value == ""){
 		alert("Fill in field");
 		return;
@@ -37,6 +37,7 @@ function addOption(){
 }
 
 function dontSaveActivity(){
+	input.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';	
 }

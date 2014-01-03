@@ -115,7 +115,10 @@ table{
 	width: 100%;
 }
 table td{
+	background-image:url('../img/bg_active.jpg');
 	cursor: pointer;
+	padding-bottom:10px;
+	padding-top:10px;	
 }
 
 #profile_details{
@@ -134,9 +137,7 @@ table td{
 	width:50%;
 }
 
-#table td:active{
-	background-image:url('../img/bg_active.jpg');
-}
+
 #table{
 	height: 500px; 	
 	font-size:medium;
@@ -151,10 +152,3 @@ a{
 	text-decoration: none;
 }
 
-
-
-#activity-table td{
-	background-image:url('../img/bg_active.jpg');
-	padding-bottom:10px;
-	padding-top:10px;
-}

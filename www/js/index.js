@@ -117,20 +117,17 @@ function sendData(username,email,mass,height,gender)
 
     // Populate the database 
     //
-    function populateDB(tx) {
+   function populateDB(tx) {
 //        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-//        tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id, desc)');
-//        tx.executeSql('INSERT INTO USDA (id, desc) VALUES (1, "First row")');
-//        tx.executeSql('INSERT INTO USDA (id, desc) VALUES (2, "Second row")');
-		tx.executeSql('CREATE TABLE IF NOT EXISTS USDA (id,desc,water,energ_kcal,protein,lipid_tot,ash,carbo,fiber_td,sugar_tot,calcium,iron,magnesium,phosphorus,potassium,sodium,zinc,copper,manganese,selenium,vit_c,thiamin,riboflavin,niacin,panto_acid,vit_b6,folate_tot,folic_acid,food_folate,folate_dfe,choline_tot,vit_b12,vit_a_iu,vit_a_rae,retinol,alpha_carot,beta_carot,beta_crypt,lycopene,lut_zea,vit_e,vit_d,vit_d_iu,vit_k,fa_sat,fa_mono,fa_poly,cholestrl,gmwt,gmwt_desc1,gmwt_2,gmwt_desc2,refuse_pct)');
-  		tx.executeSql('INSERT INTO USDA (id,desc,water,energ_kcal,protein,lipid_tot,ash,carbo,fiber_td,sugar_tot,calcium,iron,magnesium,phosphorus,potassium,sodium,zinc,copper,manganese,selenium,vit_c,thiamin,riboflavin,niacin,panto_acid,vit_b6,folate_tot,folic_acid,food_folate,folate_dfe,choline_tot,vit_b12,vit_a_iu,vit_a_rae,retinol,alpha_carot,beta_carot,beta_crypt,lycopene,lut_zea,vit_e,vit_d,vit_d_iu,vit_k,fa_sat,fa_mono,fa_poly,cholestrl,gmwt,gmwt_desc1,gmwt_2,gmwt_desc2,refuse_pct)\
-  					 VALUES (2, "Second row",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,"asd1")');	
-    }
+        tx.executeSql('CREATE TABLE IF NOT EXISTS FOOD (id, desc, energ_kcal, protein, lipid, carbo)');
+        tx.executeSql('INSERT INTO FOOD (id, desc) VALUES (1, "BUTTER,WITH SALT",717,0.85,81.11,0.06)');
+        tx.executeSql('INSERT INTO FOOD (id, desc) VALUES (2, "APPLES,RAW,WITHOUT SKIN",48,0.27,0.13,12.76)');
+   }
 
     // Query the database
     //
     function queryDB(tx) {
-        tx.executeSql('SELECT * FROM USDA', [], querySuccess, errorCB);
+        tx.executeSql('SELECT * FROM FOOD', [], querySuccess, errorCB);
     }
 
     // Query the success callback
@@ -138,7 +135,7 @@ function sendData(username,email,mass,height,gender)
     function querySuccess(tx, results) {
         var len = results.rows.length;
         var txt = "";
-        txt ="USDA table: " + len + " rows found.<br><br>";
+        txt ="Food DB: " + len + " rows found.<br><br>";
 
         for (var i=0; i<len; i++){
            txt += "Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).desc + "<br>";
@@ -155,7 +152,7 @@ function sendData(username,email,mass,height,gender)
     // Transaction success callback
     //
     function successCB() {
-        var db = window.openDatabase("Food", "1.0", "FoodDisplay", 100000);
+        var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
         db.transaction(queryDB, errorCB);
     }
 
@@ -163,7 +160,7 @@ function sendData(username,email,mass,height,gender)
     //
     function onDeviceReady() {
     	p.innerHTML = "aka";
-        var db = window.openDatabase("Food", "1.0", "FoodDisplay", 100000);
+        var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
         db.transaction(populateDB, errorCB, successCB);
         alert("da da");
     }

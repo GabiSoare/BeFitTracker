@@ -120,8 +120,8 @@ function sendData(username,email,mass,height,gender)
    function populateDB(tx) {
 //        tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS FOOD (id, desc, energ_kcal, protein, lipid, carbo)');
-        tx.executeSql('INSERT INTO FOOD (id, desc) VALUES (1, "BUTTER,WITH SALT",717,0.85,81.11,0.06)');
-        tx.executeSql('INSERT INTO FOOD (id, desc) VALUES (2, "APPLES,RAW,WITHOUT SKIN",48,0.27,0.13,12.76)');
+        tx.executeSql('INSERT INTO FOOD (id, desc, energ_kcal, protein, lipid, carbo) VALUES (1, "BUTTER,WITH SALT",717,0.85,81.11,0.06)');
+        tx.executeSql('INSERT INTO FOOD (id, desc, energ_kcal, protein, lipid, carbo) VALUES (2, "APPLES,RAW,WITHOUT SKIN",48,0.27,0.13,12.76)');
    }
 
     // Query the database

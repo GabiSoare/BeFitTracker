@@ -6,8 +6,26 @@ var add_new = document.getElementById("add-new");
 
 var input = document.getElementById("activityName");
 
-function loadActivities(){
+
+    // Query the success callback
+    //
+function querySuccess(tx, results) {
+    var len = results.rows.length;
+    for (var i=0; i<len; i++){
+		var row = table.insertRow(i);
+		var cell = row.insertCell(0);
+		cell.innerHTML  = results.rows.item(i).desc;   
+    }
 	
+}
+
+function queryDB(tx) {
+    tx.executeSql('SELECT * FROM Activities', [], querySuccess, errorCB);
+}
+
+function loadActivities(){
+    var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
+    db.transaction(queryDB, errorCB);	
 }
 
 
@@ -46,7 +64,7 @@ function addActivity(){
     db.transaction(populateDB, errorCB, successCB);	
 	
 	totalOfActivies ++;
-	window.localStorage.setItem("totalOfActivies",totalOfActivies)		
+	window.localStorage.setItem("totalOfActivies",totalOfActivies);		
 	input.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';

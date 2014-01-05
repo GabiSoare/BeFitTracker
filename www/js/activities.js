@@ -67,7 +67,7 @@ function addActivity(){
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);
     
-	input.value = "";
+	input.value = "1";
 	table.style.display = "block";
 	add_new.style.display = 'none';
 }

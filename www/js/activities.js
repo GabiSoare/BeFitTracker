@@ -1,5 +1,5 @@
 
-var totalOfActivies = 0;
+var totalOfActivies = window.localStorage.getItem("totalOfActivies");
 
 var table = document.getElementById("activity-table");
 var add_new = document.getElementById("add-new");
@@ -10,6 +10,25 @@ function loadActivities(){
 	
 }
 
+
+function populateDB(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Activities (desc)');
+    tx.executeSql('INSERT INTO Activities (desc) VALUES ("'+input.value+'")');
+}
+//    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+parseFloat(energy.value)+','+parseFloat(protein.value)+','+parseFloat(lipid.value)+','+parseFloat(carbo.value)')');
+
+// Transaction error callback
+//
+function errorCB(err) {
+    alert("Error processing Food database: "+err.code);
+}
+
+// Transaction success callback
+//
+function successCB() {
+	alert('Activity has been inserted');
+}
+    
 function addActivity(){
 	
 	if(input.value == ""){
@@ -17,14 +36,17 @@ function addActivity(){
 		return;
 	}
 
-	var activityName = input.value;
-	
 	var row = table.insertRow(totalOfActivies);
 	var cell = row.insertCell(0);
-	cell.innerHTML  = activityName;
-	cell.onclick = function(){alert(activityName)};
+	cell.innerHTML  = input.value;
+	cell.onclick = function(){alert(input.value)};
+
 	//I must to save into DB;
-	totalOfActivies ++;		
+    var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
+    db.transaction(populateDB, errorCB, successCB);	
+	
+	totalOfActivies ++;
+	window.localStorage.setItem("totalOfActivies",totalOfActivies)		
 	input.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';

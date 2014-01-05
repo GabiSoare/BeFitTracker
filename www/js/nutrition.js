@@ -35,7 +35,6 @@ function addActivity(){
 		return;
 	}
 
-	alert(parseFloat(energy.value)+parseFloat(protein.value));
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);
 	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";

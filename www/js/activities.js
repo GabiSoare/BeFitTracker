@@ -4,24 +4,23 @@ var table = document.getElementById("activity-table");
 var add_new = document.getElementById("add-new");
 var input = document.getElementById("activityName");
 
-loadActivities();
-
-// Query the database
-//
-function queryDB(tx) {
-    tx.executeSql('SELECT * FROM Activities', [], querySuccess, errorCB);
-}
 
 // Query the success callback
 //
 function querySuccess(tx, results) {
-    var len = results.rows.length;
-
+    var len = totalOfActivies = results.rows.length;
+	
     for (var i=0; i<len; i++){
 		var row = table.insertRow(i);
 		var cell = row.insertCell(0);
 		cell.innerHTML  = results.rows.item(i).desc;
     }
+}
+
+// Query the database
+//
+function queryDB(tx) {
+    tx.executeSql('SELECT * FROM Activities', [], querySuccess, errorCB);
 }
 
 function populateDB(tx) {
@@ -61,10 +60,11 @@ function addActivity(){
 	cell.innerHTML  = input.value;
 	cell.onclick = function(){alert(input.value)};
 
+	totalOfActivies ++;	
+
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);
     
-	totalOfActivies ++;		
 	input.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';

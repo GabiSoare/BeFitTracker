@@ -9,11 +9,11 @@ var protein = document.getElementById('protein');
 var lipid = document.getElementById('lipid');
 var carbo = document.getElementById('carbo');
 
-
+var energ = parseInt(energy.value);
 
 function populateDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS FOOD (desc, energ_kcal, protein, lipid, carbo)');
-    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+parseInt(energy.value)+',"'+protein.value+'","'+lipid.value+'","'+carbo.value+'")');
+    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+energ+',"'+protein.value+'","'+lipid.value+'","'+carbo.value+'")');
 }
 //    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+parseFloat(energy.value)+','+parseFloat(protein.value)+','+parseFloat(lipid.value)+','+parseFloat(carbo.value)')');
 

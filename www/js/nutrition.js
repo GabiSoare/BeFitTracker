@@ -4,6 +4,7 @@ var table = document.getElementById('nutrition-table');
 var add_new = document.getElementById('add-new');
 
 var food_name = document.getElementById('food_name');
+var energy = document.getElementById('energy');
 var protein = document.getElementById('protein');
 var lipid = document.getElementById('lipid');
 var carbo = document.getElementById('carbo');
@@ -12,7 +13,7 @@ var carbo = document.getElementById('carbo');
 
 function populateDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS FOOD (desc, energ_kcal, protein, lipid, carbo)');
-    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("BUTTER,WITH SALT",717,0.85,81.11,0.06)');
+    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+energy.value+','+protein.value+','+lipid.value+','+carbo.value+')');
 }
 
 // Transaction error callback
@@ -33,11 +34,10 @@ function addActivity(){
 		alert("Fill in field");
 		return;
 	}
-	
-	//I must to save into DB;
+
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);
-	
+	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';
 }
@@ -49,7 +49,7 @@ function addOption(){
 
 
 function dontSaveActivity(){
-	food_name.value= protein.value = lipid.value = carbo.value = "";
+	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';	
 }

@@ -1,33 +1,28 @@
 
-var totalOfActivies = window.localStorage.getItem("totalOfActivies");
-
+var totalOfActivies = 0;
 var table = document.getElementById("activity-table");
 var add_new = document.getElementById("add-new");
-
 var input = document.getElementById("activityName");
 
+loadActivities();
 
-    // Query the success callback
-    //
-function querySuccess(tx, results) {
-    var len = results.rows.length;
-    for (var i=0; i<len; i++){
-		var row = table.insertRow(i);
-		var cell = row.insertCell(0);
-		cell.innerHTML  = results.rows.item(i).desc;   
-    }
-	
-}
-
+// Query the database
+//
 function queryDB(tx) {
     tx.executeSql('SELECT * FROM Activities', [], querySuccess, errorCB);
 }
 
-function loadActivities(){
-    var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
-    db.transaction(queryDB, errorCB);	
-}
+// Query the success callback
+//
+function querySuccess(tx, results) {
+    var len = results.rows.length;
 
+    for (var i=0; i<len; i++){
+		var row = table.insertRow(i);
+		var cell = row.insertCell(0);
+		cell.innerHTML  = results.rows.item(i).desc;
+    }
+}
 
 function populateDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS Activities (desc)');
@@ -46,6 +41,13 @@ function errorCB(err) {
 function successCB() {
 	alert('Activity has been inserted');
 }
+
+function loadActivities(){
+    var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
+    db.transaction(queryDB, errorCB);		
+
+}
+
     
 function addActivity(){
 	
@@ -59,12 +61,10 @@ function addActivity(){
 	cell.innerHTML  = input.value;
 	cell.onclick = function(){alert(input.value)};
 
-	//I must to save into DB;
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
-    db.transaction(populateDB, errorCB, successCB);	
-	
-	totalOfActivies ++;
-	window.localStorage.setItem("totalOfActivies",totalOfActivies);		
+    db.transaction(populateDB, errorCB, successCB);
+    
+	totalOfActivies ++;		
 	input.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';

@@ -162,7 +162,6 @@ function sendData(username,email,mass,height,gender)
     	p.innerHTML = "aka";
         var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
         db.transaction(populateDB, errorCB, successCB);
-        alert("da da");
     }
 
 		

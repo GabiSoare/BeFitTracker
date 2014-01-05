@@ -8,9 +8,18 @@
         <title>BeFit! Tracker</title>
     </head>
     <body>
-		<table id="activity-table" style="text-align: left;font-size: medium">
+		<table id="nutrition-table" style="text-align: left;font-size: medium">
 			<tr><td>Add Meal</td></tr>
-			<tr><td>Add Food To Database</td></tr>
+			<tr><td onclick="addOption()">Add Food To DB</td></tr>
 		</table>
+		<div id="add-new" style="display: none">
+			<input id="food_name" type="text" value="" placeholder="Food name"/><br />Details for 100g : </br>
+			<input id="protein" type="text" value="" placeholder="protein"/></br>
+			<input id="lipid" type="text" value="" placeholder="lipid"/></br>
+			<input id="carbo" type="text" value="" placeholder="carbohydr"/></br>
+			<span id="yes" onclick="addActivity()">YES</span> <span id="no" onclick="dontSaveActivity()">NO</span>
+		</div>
+		<script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" src="js/nutrition.js"></script>
     </body>
 </html>

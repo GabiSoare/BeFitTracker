@@ -28,6 +28,7 @@ function queryDB(tx) {
 function populateDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS Activities (desc)');
     tx.executeSql('INSERT INTO Activities (desc) VALUES ("'+input.value+'")');
+    input.value = "";
 }
 //    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+parseFloat(energy.value)+','+parseFloat(protein.value)+','+parseFloat(lipid.value)+','+parseFloat(carbo.value)')');
 
@@ -67,7 +68,6 @@ function addActivity(){
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);
     
-	input.value = "1";
 	table.style.display = "block";
 	add_new.style.display = 'none';
 }

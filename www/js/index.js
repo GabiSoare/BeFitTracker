@@ -138,7 +138,7 @@ function sendData(username,email,mass,height,gender)
         txt ="Food DB: " + len + " rows found.<br><br>";
 
         for (var i=0; i<len; i++){
-           txt += "Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).desc + "<br>";
+           txt += "Row = " + i + " Data =  " + results.rows.item(i).desc + "<br>";
         }
         p.innerHTML = txt;
     }

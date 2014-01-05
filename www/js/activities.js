@@ -13,7 +13,8 @@ function querySuccess(tx, results) {
     for (var i=0; i<len; i++){
 		var row = table.insertRow(i);
 		var cell = row.insertCell(0);
-		cell.innerHTML  = i;//results.rows.item(i).desc;
+		cell.innerHTML  = i;
+		alert(i+ " : " +results.rows.item(i).desc);
     }
 }
 

@@ -57,7 +57,7 @@ function queryDB(tx) {
 
 function querySuccess(tx, results) {
     var len = results.rows.length;
-	
+	alert(len);
     for (var i=0; i<len; i++){
 		var row = basicTable.insertRow(i);
 		var cell = row.insertCell(0);
@@ -66,13 +66,14 @@ function querySuccess(tx, results) {
 		cell.innerHTML  = results.rows.item(len-1-i).bodyfat;
 		var cell = row.insertCell(2);
 		cell.innerHTML  = results.rows.item(len-1-i).date;		
+		
+		alert(results.rows.item(len-1-i).weight+results.rows.item(len-1-i).bodyfat+results.rows.item(len-1-i).date);
     }
 }
 
 function loadBasicMeasurements(){
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(queryDB, errorCB);		
-
 }
 
 
@@ -81,8 +82,8 @@ function loadBasicMeasurements(){
    function populateDB(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS BASICMEASUREMENTS (weight, bodyfat, date)');
         tx.executeSql('INSERT INTO BASICMEASUREMENTS (weight, bodyfat, date) VALUES ("'+input1.value+'","'+input2.value+'","'+getDate()+'")');
-		input1.value = "";
-		input2.value = "";        
+		input1.value = "2";
+		input2.value = "2";        
    }
 
 

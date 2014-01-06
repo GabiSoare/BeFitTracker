@@ -9,7 +9,7 @@ var input = document.getElementById("activityName");
 function querySuccess(tx, results) {
     var len = results.rows.length;
 	
-    for (var i=0; i<len; i++){
+    for (var i=len-1; i>=0; i--){
 		var row = table.insertRow(i);
 		var cell = row.insertCell(0);
 		cell.innerHTML  = results.rows.item(i).desc;

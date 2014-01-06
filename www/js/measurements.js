@@ -1,51 +1,78 @@
 
-
+var basicTable = document.getElementById("basicTable");
 var table = document.getElementById("measure-table");
 var add_new = document.getElementById("add-new");
-
-var totalOfActivies = 1;
 
 var input1 = document.getElementById("weight");
 var input2 = document.getElementById("bodyfat");
 
-function addActivity(){
-	var currentdate = new Date(); 
+function addBasicMeasurements(){
 	
 	if(input1.value == "" || input2.value == ""){
-		alert("Fill in field");
+		alert("Fill in the all fields");
 		return;
 	}
 	//Add to table
-	var row = table.insertRow(2);
+	var row = basicTable.insertRow(0);
 	var cell = row.insertCell(0);
 	cell.innerHTML  = input1.value;
-	cell.onclick = function(){alert(input1.value)};
 	cell = row.insertCell(1);
 	cell.innerHTML  = input2.value;
-	cell.onclick = function(){alert(input2.value)};
+	cell = row.insertCell(2);
+	cell.innerHTML  = getDate();
 
 	window.localStorage.setItem("Mass", input1.value);
 	//I must to save into DB;
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);	
 	table.style.display = "block";
+	basicTable.style.display = "block";
 	add_new.style.display = 'none';
 
 }
 
+function getDate(){
+	//Get Current Date
+	var currentdate = new Date(); 
+	return date = currentdate.getDate()+"-"+ (currentdate.getMonth()+1)+ "-" + currentdate.getFullYear();
+}
 
 function addOption(){
 	table.style.display = "none";
+	basicTable.style.display = "none";
 	add_new.style.display = 'block';
 }
 
-function dontSaveActivity(){
+function dontSaveBasicMeasurements(){
+	basicTable.style.display = "block";
 	table.style.display = "block";
 	add_new.style.display = 'none';	
 }
 
-function loadActivities(){
+
+function queryDB(tx) {
+	tx.executeSql('CREATE TABLE IF NOT EXISTS BASICMEASUREMENTS (weight, bodyfat, date)');
+    tx.executeSql('SELECT * FROM BASICMEASUREMENTS', [], querySuccess, errorCB);
+}
+
+function querySuccess(tx, results) {
+    var len = results.rows.length;
 	
+    for (var i=0; i<len; i++){
+		var row = basicTable.insertRow(i);
+		var cell = row.insertCell(0);
+		cell.innerHTML  = results.rows.item(len-1-i).weight;
+		var cell = row.insertCell(1);
+		cell.innerHTML  = results.rows.item(len-1-i).bodyfat;
+		var cell = row.insertCell(2);
+		cell.innerHTML  = results.rows.item(len-1-i).date;		
+    }
+}
+
+function loadBasicMeasurements(){
+    var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
+    db.transaction(queryDB, errorCB);		
+
 }
 
 
@@ -53,7 +80,7 @@ function loadActivities(){
     //
    function populateDB(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS BASICMEASUREMENTS (weight, bodyfat, date)');
-        tx.executeSql('INSERT INTO BASICMEASUREMENTS (weight, bodyfat, date) VALUES ("'+input1.value+'","'+input2.value+'",0.85)');
+        tx.executeSql('INSERT INTO BASICMEASUREMENTS (weight, bodyfat, date) VALUES ("'+input1.value+'","'+input2.value+'","'+getDate()+'")');
 		input1.value = "";
 		input2.value = "";        
    }

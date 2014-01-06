@@ -9,8 +9,8 @@ var input = document.getElementById("activityName");
 function querySuccess(tx, results) {
     var len = results.rows.length;
 	
-    for (var i=len-1; i>=0; i--){
-		var row = table.insertRow(i);
+    for (var i=0; i<len; i++){
+		var row = table.insertRow(len-1-i);
 		var cell = row.insertCell(0);
 		cell.innerHTML  = results.rows.item(i).desc;
     }
@@ -60,6 +60,7 @@ function addActivity(){
 	var cell = row.insertCell(0);
 	cell.innerHTML  = input.value;
 	cell.onclick = function(){alert(input.value)};
+
 
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);

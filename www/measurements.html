@@ -10,15 +10,15 @@
     <body>
     	<div align="center">
     		<span style="font-size:x-large;">Current values</span>
-	   		<p id="measure">.</p>
     	</div>
-		<table id="measure-table" style="text-align: left;font-size: medium">
-			<tr><td onclick="addOption()">Add Measure</td></tr>
+		<table id="measure-table" style="text-align: left;font-size: medium;">
+			<tr><td>Body</td></tr>
+			<tr><td onclick="addOption()">New Measurement</td></tr>
 		</table>
 		<div id="add-new" style="display: none">
-			Write below your Measurements : </br> 			
-			Height : <input id="height" type="text" value="" /></br>
-			Weight :<input id="weight" type="text" value="" /></br>
+			Write below your Measurements : </br></br> 			
+			Weight : <input id="weight" type="text" value="" /></br>
+			Body Fat % :<input id="bodyfat" type="text" value="" /></br>
 			<span id="yes" onclick="addActivity()">YES</span> <span id="no" onclick="dontSaveActivity()">NO</span>
 		</div>
     </body>

@@ -109,59 +109,11 @@ function sendData(username,email,mass,height,gender)
 }
 
 
-// DOWNLOADEAZA IN BAZA DE DATE DACA USERUL APASA 'YES'
-
-
-
-
-
-    // Populate the database 
-    //
-   function populateDB(tx) {
-//        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS FOOD (desc, energ_kcal, protein, lipid, carbo)');
-        tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("BUTTER,WITH SALT",717,0.85,81.11,0.06)');
-        tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("APPLES,RAW,WITHOUT SKIN",48,0.27,0.13,12.76)');
-   }
-
-    // Query the database
-    //
-    function queryDB(tx) {
-        tx.executeSql('SELECT * FROM FOOD', [], querySuccess, errorCB);
-    }
-
-    // Query the success callback
-    //
-    function querySuccess(tx, results) {
-        var len = results.rows.length;
-        var txt = "";
-        txt ="Food DB: " + len + " rows found.<br><br>";
-
-        for (var i=0; i<len; i++){
-           txt += "Row = " + i + " Data =  " + results.rows.item(i).desc + "<br>";
-        }
-        p.innerHTML = txt;
-    }
-
-    // Transaction error callback
-    //
-    function errorCB(err) {
-        alert("Error processing Food database: "+err.code);
-    }
-
-    // Transaction success callback
-    //
-    function successCB() {
-        var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
-        db.transaction(queryDB, errorCB);
-    }
 
     // PhoneGap is ready
     //
     function onDeviceReady() {
-    	p.innerHTML = "aka";
-        var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
-        db.transaction(populateDB, errorCB, successCB);
+    	p.innerHTML = "Merje";
     }
 
 		

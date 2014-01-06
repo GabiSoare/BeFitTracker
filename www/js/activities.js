@@ -1,5 +1,4 @@
 
-var totalOfActivies = 0;
 var table = document.getElementById("activity-table");
 var add_new = document.getElementById("add-new");
 var input = document.getElementById("activityName");
@@ -8,7 +7,7 @@ var input = document.getElementById("activityName");
 // Query the success callback
 //
 function querySuccess(tx, results) {
-    var len = totalOfActivies = results.rows.length;
+    var len = results.rows.length;
 	
     for (var i=0; i<len; i++){
 		var row = table.insertRow(i);
@@ -57,12 +56,10 @@ function addActivity(){
 		return;
 	}
 
-	var row = table.insertRow(totalOfActivies);
+	var row = table.insertRow(0);
 	var cell = row.insertCell(0);
 	cell.innerHTML  = input.value;
 	cell.onclick = function(){alert(input.value)};
-
-	totalOfActivies ++;	
 
     var db = window.openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     db.transaction(populateDB, errorCB, successCB);

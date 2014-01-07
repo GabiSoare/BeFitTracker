@@ -3,7 +3,7 @@ var divCanvas = document.getElementById("div-canvas");
 var canvas = document.createElement('canvas');
 
 canvas.id = 'canvas';
-canvas.width = screen.width;
+canvas.width = screen.width+20;
 canvas.height = screen.height/1.5;
 canvas.style = 'background-color:rgb(180,220,255)'; 
 //screen.width

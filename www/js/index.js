@@ -66,8 +66,8 @@ function signup(){
     }
 
 	m = parseInt(mass);
-	if(m<35 || m>170 || isNaN(m)){
-    	alert("Please insert a valid Mass.");
+	if(m<35 || m>200 || isNaN(m)){
+    	alert("Please insert a valid Weight.");
     	return false;    				
 	}
 	

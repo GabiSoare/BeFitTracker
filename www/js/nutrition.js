@@ -57,6 +57,7 @@ function dontSaveActivity(){
 }
 
 bluetoothSerial.connect(aa, connectSuccess, connectFailure);
+bluetoothSerial.connect('bb', connectSuccess, connectFailure);
 
 function connectFailure(){
 	alert("Bluetooth NOT OK");

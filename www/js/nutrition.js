@@ -55,3 +55,18 @@ function dontSaveActivity(){
 	table.style.display = "block";
 	add_new.style.display = 'none';	
 }
+
+
+
+// prep some variables
+  var startDate = new Date("September 24, 2013 13:00:00");
+  var endDate = new Date("September 24, 2013 14:30:00");
+  var title = "My nice event";
+  var location = "Home";
+  var notes = "Some notes about this event.";
+  var success = function(message) { alert("Success: " + JSON.stringify(message)); };
+  var error = function(message) { alert("Error: " + message); };
+ 
+
+  // create (the only function also supported on Android for now)
+  window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);

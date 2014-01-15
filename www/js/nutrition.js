@@ -56,17 +56,24 @@ function dontSaveActivity(){
 	add_new.style.display = 'none';	
 }
 
+bluetoothSerial.connect(aa, connectSuccess, connectFailure);
 
+function connectFailure(){
+	alert("Bluetooth NOT OK");
+}
 
+function connectSuccess(){
+	alert("Bluetooth OK");
+}
 // prep some variables
-  var startDate = new Date("September 24, 2013 13:00:00");
-  var endDate = new Date("September 24, 2013 14:30:00");
+  var startDate = new Date("January 16, 2014 13:00:00");
+  var endDate = new Date("January 16, 2014 14:30:00");
   var title = "My nice event";
-  var location = "nutrition.html";
+  var loc = "home";
   var notes = "Some notes about this event.";
   var success = function(message) { alert("Success: " + JSON.stringify(message)); };
   var error = function(message) { alert("Error: " + message); };
  
 
   // create (the only function also supported on Android for now)
-  window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,success,error);
+  window.plugins.calendar.createEvent(title,loc,notes,startDate,endDate,success,error);

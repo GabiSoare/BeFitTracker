@@ -62,7 +62,7 @@ function dontSaveActivity(){
   var startDate = new Date("September 24, 2013 13:00:00");
   var endDate = new Date("September 24, 2013 14:30:00");
   var title = "My nice event";
-  var location = "Home";
+  var location = "nutrition.html";
   var notes = "Some notes about this event.";
   var success = function(message) { alert("Success: " + JSON.stringify(message)); };
   var error = function(message) { alert("Error: " + message); };

@@ -55,16 +55,3 @@ function dontSaveActivity(){
 	table.style.display = "block";
 	add_new.style.display = 'none';	
 }
-
-alert("OK");
-var bluetoothSerial = cordova.require('bluetoothSerial');
-//bluetoothSerial.connect(aa, connectSuccess, connectFailure);
-bluetoothSerial.connect('00:1C:9A:45:A0:AA', connectSuccess, connectFailure);
-
-function connectFailure(){
-	alert("Bluetooth NOT OK");
-}
-
-function connectSuccess(){
-	alert("Bluetooth OK");
-}

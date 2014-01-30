@@ -59,7 +59,7 @@ function dontSaveActivity(){
 alert("OK");
 var bluetoothSerial = cordova.require('bluetoothSerial');
 //bluetoothSerial.connect(aa, connectSuccess, connectFailure);
-bluetoothSerial.connect(00:1C:9A:45:A0:AA, connectSuccess, connectFailure);
+bluetoothSerial.connect('00:1C:9A:45:A0:AA', connectSuccess, connectFailure);
 
 function connectFailure(){
 	alert("Bluetooth NOT OK");
@@ -68,15 +68,3 @@ function connectFailure(){
 function connectSuccess(){
 	alert("Bluetooth OK");
 }
-// prep some variables
-  var startDate = new Date("January 16, 2014 13:00:00");
-  var endDate = new Date("January 16, 2014 14:30:00");
-  var title = "My nice event";
-  var loc = "home";
-  var notes = "Some notes about this event.";
-  var success = function(message) { alert("Success: " + JSON.stringify(message)); };
-  var error = function(message) { alert("Error: " + message); };
- 
-
-  // create (the only function also supported on Android for now)
-  window.plugins.calendar.createEvent(title,loc,notes,startDate,endDate,success,error);

@@ -58,7 +58,7 @@ function dontSaveActivity(){
 
 var bluetoothSerial = cordova.require('bluetoothSerial');
 //bluetoothSerial.connect(aa, connectSuccess, connectFailure);
-bluetoothSerial.connect('94:20:53:ED:00:BC', connectSuccess, connectFailure);
+bluetoothSerial.connect('00:1C:9A:45:A0:AA', connectSuccess, connectFailure);
 
 function connectFailure(){
 	alert("Bluetooth NOT OK");

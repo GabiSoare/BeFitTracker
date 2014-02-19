@@ -99,7 +99,7 @@ function sendData(username,pass,email,mass,height,gender)
 	 {// code for IE6, IE5
 	     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
      }
-	alert("Se vor trimite);
+
 	var signup = document.getElementById("signup"); 
 	signup.style.display = "none";	
 	var p = document.getElementById("p"); 

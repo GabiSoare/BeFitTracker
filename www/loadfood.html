@@ -133,8 +133,10 @@ $(document).ready(function () {
 										//This is not possible to US, we need fire
 										//only if totalrows is reached. 
 
-	        				  			if(ix+1==totalrows)
-	        				  				 window.location.href = "main.html";
+	        				  			if(ix+1==totalrows){
+	        				  				 window.localStorage.setItem("GOTOMAIN_FLAG","1234");
+											 window.location.href = "main.html";
+										}
 	        				  			ix++;
 									}
 									function errorIS(err) {

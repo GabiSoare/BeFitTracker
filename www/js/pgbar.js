@@ -1,3 +1,9 @@
+var GOTOMAIN_FLAG = window.localStorage.getItem("GOTOMAIN_FLAG");
+if("1234" == GOTOMAIN_FLAG){
+	window.location.href = "main.html";
+}
+
+
 function drawpgbar(total, item,count){
 	if(item>0){
 		var szazalek=Math.round((item*100)/total);

@@ -6,6 +6,13 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>BeFit! Tracker</title>
+		
+	<script>
+		var GOTOMAIN_FLAG = window.localStorage.getItem("GOTOMAIN_FLAG");
+		if("1234" == GOTOMAIN_FLAG){
+			window.location.href = "main.html";
+		}
+	</script>
     </head>
     <body>
     	<div id="signup" align="center">

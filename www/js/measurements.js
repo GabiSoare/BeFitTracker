@@ -12,8 +12,19 @@ function addBasicMeasurements(){
 		alert("Fill in the all fields");
 		return;
 	}
+	m = parseInt(input1.value);
+	bf = parseInt(input2.value);
+
+	if(m<35 || m>200 || isNaN(m)){
+    	alert("Please insert a valid Mass.");
+    	return false;    				
+	}	
+	if(bf<1 || bf>60 || isNaN(m)){
+    	alert("Please insert a valid Body fat.");
+    	return false;    				
+	}		
 	//Add to table
-	var row = basicTable.insertRow(0);
+	var row = basicTable.insertRow(1);
 	var cell = row.insertCell(0);
 	cell.innerHTML  = input1.value;
 	cell = row.insertCell(1);
@@ -59,7 +70,7 @@ function querySuccess(tx, results) {
     var len = results.rows.length;
 //	alert(len);
     for (var i=0; i<len; i++){
-		var row = basicTable.insertRow(i);
+		var row = basicTable.insertRow(i+1);
 		var cell = row.insertCell(0);
 		cell.innerHTML  = results.rows.item(len-1-i).weight;
 		var cell = row.insertCell(1);

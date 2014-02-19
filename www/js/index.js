@@ -99,23 +99,14 @@ function sendData(username,pass,email,mass,height,gender)
 	 {// code for IE6, IE5
 	     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
      }
-
+	alert("Se vor trimite);
 	var signup = document.getElementById("signup"); 
 	signup.style.display = "none";	
 	var p = document.getElementById("p"); 
   	p.style.display="block";	 
 
-  	/*
-		If Rows quantity is equals Zero then ask if download Foods table
-		Else goes to Main Screen.
-		*/
-		if(qtyRows==0){
+	p.innerHTML = "Welcome here "+ username + "!<br><br> Do you like to download our Food Database? <br><a onclick='downloadDatabase()'>Yes</a> <a href='main.html' onclick='noDownloadDatabase()' rel='external' style='text-decoration:none; color: #506070'>No</a>";
 
-			p.innerHTML = "Welcome here "+ username + "!<br><br> Do you like to download our Food Database? <br><a onclick='downloadDatabase()'>Yes</a> <a href='main.html' onclick='noDownloadDatabase()' rel='external' style='text-decoration:none; color: #506070'>No</a>";
-		}
-		else{
-			window.location.href = "main.html";
-		}
 		
     window.localStorage.setItem("Username", username);
     window.localStorage.setItem("Password", pass);

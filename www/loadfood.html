@@ -23,7 +23,7 @@ $(document).ready(function () {
   	//fires populate if not exist, success if exists
   	//Thanks to Cordoba.js next openDatabase refers to DB existent and
   	//this in particular doesnt works on Desktop Browser without cordova support.
-  	var db = openDatabase("test", "1.0", "Test DB", 50000000);
+  	var db = openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
   	
   	var totalrows = 0;
   				//We send parameter 'qty' and test.php responds total Quantity of Rows
@@ -160,7 +160,7 @@ $(document).ready(function () {
 			</div>
 		</div>
 		<div id="inFoodDesc">
-			blah
+			Connecting to the Food database...
 		</div>
 	</div>
 

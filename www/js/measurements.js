@@ -107,5 +107,5 @@ function loadBasicMeasurements(){
     // Transaction success callback
     //
     function successCB() {
-		alert("Succes");
+//		alert("Succes");
     }

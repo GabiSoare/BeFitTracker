@@ -126,7 +126,7 @@ function sendData(username,pass,email,mass,height,gender)
 
     	//This not will create anything only is for Query purposes. And extract if Data must
     	//to be downladed. Really loadfood.js will create Tables.
-    	var db = openDatabase("test", "1.0", "Test DB", 50000000);
+    	var db = openDatabase("AllData", "1.0", "AllDataDisplay", 100000);
     	db.transaction(populateDB, errorCB, successCB);
     	function populateDB(tx) {
 

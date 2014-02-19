@@ -16,7 +16,6 @@ function populateDB(tx) {
 
 	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 }
-//    tx.executeSql('INSERT INTO FOOD (desc, energ_kcal, protein, lipid, carbo) VALUES ("'+food_name.value+'",'+parseFloat(energy.value)+','+parseFloat(protein.value)+','+parseFloat(lipid.value)+','+parseFloat(carbo.value)')');
 
 // Transaction error callback
 //
@@ -27,7 +26,7 @@ function errorCB(err) {
 // Transaction success callback
 //
 function successCB() {
-//	alert('Food has been inserted');
+	alert('Food has been inserted');
 }
     
 function addActivity(){

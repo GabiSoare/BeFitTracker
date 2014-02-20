@@ -1,6 +1,6 @@
 
 
-
+var imgProfile  = document.getElementById("imgProfile");
 var user = window.localStorage.getItem("Username");
 var weight = window.localStorage.getItem("Mass");
 var height = window.localStorage.getItem("Height");
@@ -12,6 +12,18 @@ document.getElementById("weight").innerHTML = "W : "+weight + "kg";
 document.getElementById("bmi").innerHTML= "BMI : "+bmi;
 user_name.innerHTML = user;
 
-//var td= document.getElementsByTagName("td")[1];
-//td.style = 'background-color:#4B946A;';
+var quote = document.getElementById("quote");
+var gender = window.localStorage.getItem("Gender"); 
 
+var quote_female = ["1","2","3","4","5"];
+var quote_male = ["1","2","3","4","5"];
+
+if(gender=="Male"){
+ 	quote.innerHTML = quote_male[Math.floor(Math.random()*quote_male.length)];
+	imgProfile.src = "img/icons/male/"+window.localStorage.getItem("Icon")+".png";
+}else{
+	quote.innerHTML = quote_female[Math.floor(Math.random()*quote_female.length)];
+	imgProfile.src = "img/icons/female/"+window.localStorage.getItem("Icon")+".png";
+}
+
+		

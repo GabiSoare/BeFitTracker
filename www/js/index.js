@@ -84,6 +84,14 @@ function signup(){
     	alert("Please insert a valid Height.");
     	return false;    			
 	}
+
+//Get RANDOM Icon and store it for the user 
+	var numberOfIcons = 5;
+	if(gender=="Male")
+		window.localStorage.setItem("Icon", "male"+parseInt(Math.random()*numberOfIcons));
+	else
+		window.localStorage.setItem("Icon", "female"+parseInt(Math.random()*numberOfIcons));
+	
 	
     sendData(username,pass,email,mass,height,gender);
 

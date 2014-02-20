@@ -6,6 +6,9 @@ var weight = window.localStorage.getItem("Mass");
 var height = window.localStorage.getItem("Height");
 var bmi = (parseInt(weight)/parseFloat(height*height)*10000).toFixed(2);
 
+//save BMI 
+window.localStorage.setItem("Bmi",bmi);
+
 var user_name = document.getElementById("user_name");
 document.getElementById("height").innerHTML = "H : "+height + "cm";
 document.getElementById("weight").innerHTML = "W : "+weight + "kg";

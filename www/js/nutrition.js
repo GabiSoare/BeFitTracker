@@ -1,5 +1,4 @@
 
-
 var table = document.getElementById('nutrition-table');
 var add_new = document.getElementById('add-new');
 
@@ -29,7 +28,7 @@ function successCB() {
 	alert('Food has been inserted');
 }
     
-function addActivity(){
+function addFood(){
 	
 	if(food_name.value == "" || protein.value == "" || lipid.value == "" || energy.value == "" || carbo.value == ""){
 		alert("Fill in field");
@@ -49,7 +48,7 @@ function addOption(){
 }
 
 
-function dontSaveActivity(){
+function dontAddFood(){
 	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 	table.style.display = "block";
 	add_new.style.display = 'none';	

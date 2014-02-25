@@ -5,7 +5,7 @@ function populateDB(tx) {
      //tx.executeSql('DROP TABLE IF EXISTS FOODS');
     // strField = strField.replace(" ","_");
      //tx.executeSql('CREATE TABLE IF NOT EXISTS FOODS (id,`Desc()`)');
-     tx.executeSql('CREATE TABLE IF NOT EXISTS FOODS (' + strField + ')');
+     tx.executeSql('CREATE TABLE IF NOT EXISTS FOOD (' + strField + ')');
 }
 
 function errorCB(err) {

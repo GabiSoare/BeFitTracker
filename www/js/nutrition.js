@@ -13,7 +13,7 @@ var db_info = "`Desc`,`Water_(g)`,`Energ_Kcal`,`Protein_(g)`,`Lipid_Tot_(g)`,`Ca
 
 function populateDB(tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS FOOD ("+db_info+")");
-	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("'+food_name.value+'","'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'")');
+	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1")');
 
 	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 }

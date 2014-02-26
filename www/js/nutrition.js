@@ -2,19 +2,30 @@
 var table = document.getElementById('nutrition-table');
 var add_new = document.getElementById('add-new');
 
-var food_name = document.getElementById('food_name');
-var energy = document.getElementById('energy');
-var protein = document.getElementById('protein');
-var lipid = document.getElementById('lipid');
-var carbo = document.getElementById('carbo');
+var Desc = document.getElementById('Desc');
+var Water = document.getElementById('Water');
+var Energ = document.getElementById('Energ');
+var Protein = document.getElementById('Protein');
+var Lipid = document.getElementById('Lipid');
+var Carbohydrt = document.getElementById('Carbohydrt');
+var Fiber = document.getElementById('Fiber');
+var Sugar = document.getElementById('Sugar');
+var Calcium = document.getElementById('Calcium');
+var Iron = document.getElementById('Iron');
+var Magnesium = document.getElementById('Magnesium');
+var Vit_C = document.getElementById('Vit_C');
+var FA_Sat = document.getElementById('FA_Sat');
+var FA_Mono = document.getElementById('FA_Mono');
+var FA_Poly = document.getElementById('FA_Poly');
+var Cholestrl = document.getElementById('Cholestrl');
+
 
 //VALUES ("'+food_name.value+'","'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'")
 var db_info = "`Desc`,`Water_(g)`,`Energ_Kcal`,`Protein_(g)`,`Lipid_Tot_(g)`,`Carbohydrt_(g)`,`Fiber_TD_(g)`,`Sugar_Tot_(g)`,`Calcium_(mg)`,`Iron_(mg)`,`Magnesium_(mg)`,`Vit_C_(mg)`,`FA_Sat_(g)`,`FA_Mono_(g)`,`FA_Poly_(g)`,`Cholestrl_(mg)`";
 
 function populateDB(tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS FOOD ("+db_info+")");
-	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1")');
-alert("a");
+	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("'+Desc+'","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1")');
 	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 }
 

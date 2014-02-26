@@ -120,10 +120,6 @@ $(document).ready(function () {
 										console.log("strValues " + strValues);
 										tx.executeSql("INSERT INTO FOOD (" + strField 
 														+ ") VALUES (" + strValues + ")");
-														
-														window.onload= function(){				
-									    document.getElementById("ppp").innerHTML = strField;}
-											
 										//Each time we store a Record and we add a step on
 										//the progressBar.
 									    drawpgbar(totalrows, ix+1,i);
@@ -169,4 +165,10 @@ $(document).ready(function () {
 	</div>
     </body>
 
+<script>
+
+											lalert= function(){				
+									    document.getElementById("ppp").innerHTML = strField;}
+setTimeout(lalert,8000);
+</script>
 </html>

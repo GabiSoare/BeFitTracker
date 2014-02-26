@@ -4,7 +4,7 @@ var add_new = document.getElementById('add-new');
 
 var Desc = document.getElementById('Desc').value;
 var Water = document.getElementById('Water').value;
-var Energ = document.getElementById('Energ').value;
+var Energy = document.getElementById('Energy').value;
 var Protein = document.getElementById('Protein').value;
 var Lipid = document.getElementById('Lipid').value;
 var Carbohydrt = document.getElementById('Carbohydrt').value;
@@ -16,7 +16,7 @@ var db_info = "`Desc`,`Water_(g)`,`Energ_Kcal`,`Protein_(g)`,`Lipid_Tot_(g)`,`Ca
 
 function populateDB(tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS FOOD ("+db_info+")");
-	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("'+Desc+'","'+Water+'","'+Energ+'","'+Protein+'","'+Lipid+'","'+Carbohydrt+'","'+Fiber+'","1","1","1","1","1","1","1","1","1")');
+	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("'+Desc+'","'+Water+'","'+Energy+'","'+Protein+'","'+Lipid+'","'+Carbohydrt+'","'+Fiber+'","1","1","1","1","1","1","1","1","1")');
 
 //	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 }

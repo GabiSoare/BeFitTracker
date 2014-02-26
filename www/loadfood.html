@@ -122,7 +122,6 @@ $(document).ready(function () {
 														+ ") VALUES (" + strValues + ")");
 										//Each time we store a Record and we add a step on
 										//the progressBar.
-									    
 									    drawpgbar(totalrows, ix+1,i);
 									    //This is for show Record Name below progressbar
 									    $("#inFoodDesc").html (data.Desc);
@@ -161,12 +160,14 @@ $(document).ready(function () {
 		</div>
 		<div id="inFoodDesc">
 			Connecting to the Food database...
+			<p id="ppp">aa</p>
 		</div>
 	</div>
-
-
-
-
     </body>
 
+<script>
+											window.onload= function(){				
+									    document.getElementById("ppp").innerHTML = strField;}
+
+</script>
 </html>

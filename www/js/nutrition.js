@@ -20,11 +20,19 @@ var FA_Poly = document.getElementById('FA_Poly').value;
 var Cholestrl = document.getElementById('Cholestrl').value;
 
 
+
+//	$sqlstr = "SELECT `Desc`,`Water_(g)`,`Energ_Kcal`,`Protein_(g)`,
+//		`Lipid_Tot_(g)`,`Carbohydrt_(g)`,`Fiber_TD_(g)`,`Sugar_Tot_(g)`,`Calcium_(mg)`,
+//		`Iron_(mg)`,`Magnesium_(mg)`,`Vit_C_(mg)`,`FA_Sat_(g)`,`FA_Mono_(g)`,
+//		`FA_Poly_(g)`,`Cholestrl_(mg)`	
+
+//VALUES ("'+Desc+'","'+Water+'","'+Energ+'","'+Protein+'","'+Lipid+'","'+Carbohydrt+'","'+Fiber+'","'+Sugar+'","'+Calcium+'","'+Iron+'","'+Magnesium+'","'+Vit_C+'","'+FA_Sat+'","'+FA_Mono+'","'+FA_Poly+'","'+Cholestrl+'")');		
+//VALUES ("'+food_name.value+'","'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'""'+energy.value+'","'+protein.value+'","'+lipid.value+'")
 var db_info = "`Desc`,`Water_(g)`,`Energ_Kcal`,`Protein_(g)`,`Lipid_Tot_(g)`,`Carbohydrt_(g)`,`Fiber_TD_(g)`,`Sugar_Tot_(g)`,`Calcium_(mg)`,`Iron_(mg)`,`Magnesium_(mg)`,`Vit_C_(mg)`,`FA_Sat_(g)`,`FA_Mono_(g)`,`FA_Poly_(g)`,`Cholestrl_(mg)`";
 
 function populateDB(tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS FOOD ("+db_info+")");
-	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("'+Desc+'","'+Water+'","'+Energ+'","'+Protein+'","'+Lipid+'","'+Carbohydrt+'","'+Fiber+'","'+Sugar+'","'+Calcium+'","'+Iron+'","'+Magnesium+'","'+Vit_C+'","'+FA_Sat+'","'+FA_Mono+'","'+FA_Poly+'","'+Cholestrl+'")');
+	tx.executeSql('INSERT INTO FOOD ('+db_info+') VALUES ("1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1")');
 //	food_name.value= energy.value = protein.value = lipid.value = carbo.value = "";
 }
 

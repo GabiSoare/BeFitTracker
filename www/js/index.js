@@ -3,13 +3,14 @@
     // Wait for PhoneGap to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-
+	$('#yes').hide();
+	$('#no').hide();
 	        	
 	sup = document.getElementById("signup");    		
 	var p = document.getElementById("p");
     var e_mail = window.localStorage.getItem("Email");
 	var username = window.localStorage.getItem("Username");
-
+	var welcomeUser = document.getElementById("welcomeUser");
 	//If not Zero then Database has been downloadded
 	var qtyRows=0;
 		
@@ -26,8 +27,10 @@
 	 		window.location.href = "main.html";
 	 	}else{
 		 	sup.style.display="none";
-		  	p.style.display="block";	 
-	  		p.innerHTML = "Welcome here "+ username + "!<br><br> Do you like to download our Food Database? <br><a onclick='downloadDatabase()'>Yes</a> <a href='main.html' onclick='noDownloadDatabase()' rel='external' style='text-decoration:none; color: #506070'>No</a>";
+			welcomeUser.innerHTML = "Welcome here "+ username + "!<br> Download our Food Database?";
+			$('#yes').show();
+			$('#no').show();			
+			p.style.display="block";	 
 	  	}	
 	 }  
 	
@@ -38,6 +41,7 @@ function downloadDatabase(){
     
 function noDownloadDatabase(){
 	window.localStorage.setItem("GOTOMAIN_FLAG","1234");
+	window.location.href = "main.html";	
 }
         
 function signup(){
@@ -113,8 +117,9 @@ function sendData(username,pass,email,mass,height,gender)
 	var p = document.getElementById("p"); 
   	p.style.display="block";	 
 
-	p.innerHTML = "Welcome here "+ username + "!<br><br> Do you like to download our Food Database? <br><a onclick='downloadDatabase()'>Yes</a> <a href='main.html' onclick='noDownloadDatabase()' rel='external' style='text-decoration:none; color: #506070'>No</a>";
-
+	welcomeUser.innerHTML = "Welcome here "+ username + "!<br> Download our Food Database?";
+	$('#yes').show();
+	$('#no').show();	
 		
     window.localStorage.setItem("Username", username);
     window.localStorage.setItem("Password", pass);

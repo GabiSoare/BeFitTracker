@@ -62,7 +62,11 @@ function signup(){
 		alert("The password doesn't match");
 		return false;
 	}
-	
+
+	if(pass.length<=3){
+		alert("The password is too small");
+		return false;
+	}	
 	var x = email;
 	var atpos=x.indexOf("@");
 	var dotpos=x.lastIndexOf(".");
@@ -115,12 +119,11 @@ function sendData(username,pass,email,mass,height,gender)
 	var signup = document.getElementById("signup"); 
 	signup.style.display = "none";	
 	var p = document.getElementById("p"); 
-  	p.style.display="block";	 
-
 	welcomeUser.innerHTML = "Welcome here "+ username + "!<br> Download our Food Database?";
 	$('#yes').show();
 	$('#no').show();	
-		
+  	p.style.display="block";	
+	
     window.localStorage.setItem("Username", username);
     window.localStorage.setItem("Password", pass);
 	window.localStorage.setItem("Email", email);

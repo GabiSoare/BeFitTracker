@@ -76,7 +76,7 @@ function addOption(){
 }
 
 function dontSaveActivity(){
-	input.value = "";
+	input.value = "";	
 	table.style.display = "block";
 	add_new.style.display = 'none';	
 }

@@ -146,10 +146,23 @@ table td{
 	font-size:medium;
 	font-weight:bold;
 }
-#nutrition{
+.nutrition{
+	display:table;
+	border:1px solid black;
+	width:100%;
+}
+.nutrition div {
+	display:table-cell;
+	border:0px solid blue;
+	width:10%;
 
 }
+.nutrition div div {
+	display:table-row;
+	border:1px solid white;
+	width:10%;
 
+}
 a{
 	color:#333333;
 	text-decoration: none;

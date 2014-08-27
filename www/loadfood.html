@@ -80,6 +80,7 @@ $(document).ready(function () {
 							    //And we store each value of Column Row. 
 							    //Look strFields = Name of COLUMN NAME ej: ID,Desc,Water_(g)
 							    //Loog strValues = Value stored ej: 1003 , CHEES,COLBY, 38.2
+							    	 strField="`ID`,";
 							    	 $.each(data, function(key, val) {
 							    	 	strField = strField + "`"+ key +"`" + "," ;
 
@@ -105,7 +106,7 @@ $(document).ready(function () {
 							         db.transaction(queryIS, errorIS);
 									function queryIS(tx) {
 										var numValues=0;
-										strValues="";
+										strValues="'"+index+"',";
 									$.each(data, function(key, val) {
 							    	 	strValues = strValues + "'" + val + "',";
 
@@ -117,7 +118,7 @@ $(document).ready(function () {
 									  strValues = strValues.substring(0,strValues.length-1);
 
 										console.log("strValues " + data.Desc);
-										console.log("strValues " + strValues);
+										console.log("strValues " + strField);
 										tx.executeSql("INSERT INTO FOOD (" + strField 
 														+ ") VALUES (" + strValues + ")");
 										//Each time we store a Record and we add a step on

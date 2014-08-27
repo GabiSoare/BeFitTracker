@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <script LANGUAGE="javascript" SRC="js/jquery-1.8.2.min.js"></script>
+	<script LANGUAGE="javascript" SRC="js/jquery.mobile-1.4.0.js"></script>
+	<script LANGUAGE="javascript" SRC="js/jqueryui/jquery-ui.min.js"></script>
+	<script LANGUAGE="javascript" SRC="js/bootstrap.min.js"></script>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="js/jqueryui/jquery-ui.min.css" />
+
+        <title>BeFit! Tracker</title>
+    </head>
+    <body onload="loadMeals();">
+
+		<div id="explorerFood" style="display: inline" >
+			<input id="search" type="text" />
+			<input id="itemid" type="text" />
+		</div>		
+
+		<div id="add-new" style="display: inline" >
+			<input id="Desc" type="text" value="" placeholder="Food name"/><br />
+			Details for 100g : </br>
+			<input id="Water" type="text" value="" placeholder="Water"/> g</br>
+			<input id="Energy" type="text" value="" placeholder="Energy"/> Kcal</br>
+			<input id="Protein" type="text" value="" placeholder="Protein"/> g</br>
+			<input id="Lipid" type="text" value="" placeholder="Lipid"/> g</br>
+			<input id="Carbohydrt" type="text" value="" placeholder="Carbohydrt"/> g</br>
+			<input id="Fiber" type="text" value="" placeholder="Fiber"/> g</br>
+			<input id="Sugar" type="text" value="" placeholder="Sugar"/> g</br>
+			<input id="Calcium" type="text" value="" placeholder="Calcium"/> mg</br>			
+			<input id="Iron" type="text" value="" placeholder="Iron"/> mg</br>
+			<input id="Magnesium" type="text" value="" placeholder="Magnesium"/> mg</br>
+			<input id="Vit_C" type="text" value="" placeholder="Vit_C"/> mg</br>
+			<input id="FA_Mono" type="text" value="" placeholder="FA_Mono"/> g</br>			
+			<input id="FA_Sat" type="text" value="" placeholder="FA_Sat"/> g</br>
+			<input id="FA_Poly" type="text" value="" placeholder="FA_Poly"/> g</br>
+			<input id="Cholestrl" type="text" value="" placeholder="Cholestrl"/> mg</br>
+	
+			<span id="yes" onclick="saveThis()">Save</span>
+		</div>
+		<script type="text/javascript" src="phonegap.js"></script>	
+		<script type="text/javascript" src="js/addermeals.js"></script>
+    </body>
+</html>

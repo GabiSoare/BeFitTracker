@@ -116,9 +116,10 @@ h1 {
 table{
 	text-align:center;
 	width: 100%;
+	background-image:url('../img/bg_active.png');
 }
 table td{
-	background-image:url('../img/bg_active.jpg');
+	
 	cursor: pointer;
 	padding-bottom:10px;
 	padding-top:10px;	
